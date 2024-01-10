@@ -2,14 +2,16 @@
   <div>
     <header class="header">
       <div class="menubar">
-        <a href="#" class="logo">Logo</a>
+        <a href="#" class="logo"><router-link class="router-link" :to="{ name: 'home' }">Logo</router-link></a>
 
-        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <!-- <i class="fa-solid fa-bars" id="menu-icon"></i> -->
 
         <nav class="navbar">
-          <a href="#">Login</a>
-          <a href="#">Register</a>
+          <a href="#"><router-link :to="{ name: 'login' }">Login</router-link></a>
+          <a href="#"><router-link :to="{ name: 'register' }">Register</router-link></a>
         </nav>
+
+
       </div>
     </header>
   </div>
@@ -61,16 +63,20 @@ export default {
   left: 100%;
 }
 
-.logo {
-  color: aliceblue;
-  font-size: 25px;
+.router-link {
   text-decoration: none;
-  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+
+.logo {
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .navbar a {
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   font-size: 20px;
   text-decoration: none;
   margin: 0 15px;
