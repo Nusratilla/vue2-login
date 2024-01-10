@@ -2,14 +2,17 @@
   <div>
     <div class="container">
       <Navbar />
+      <h1>
+        <RouterView />
+      </h1>
+
     </div>
 
-    <h1>Hello World!</h1>
   </div>
 </template>
 <script>
 import { Navbar } from './components';
-
+import { RouterView } from 'vue-router';
 export default {
   components: { Navbar }
 }

@@ -7,11 +7,8 @@
         <i class="fa-solid fa-bars" id="menu-icon"></i>
 
         <nav class="navbar">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">FAQ</a>
-          <a href="#">Contact</a>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
         </nav>
       </div>
     </header>
@@ -53,11 +50,11 @@ export default {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: -110%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(190, 190, 190, 0.4));
-  transition: .7s;
+  background: linear-gradient(90deg, transparent, rgba(225, 0, 255, 0.4));
+  transition: .7s ease;
 }
 
 .menubar:hover::before {
@@ -81,7 +78,7 @@ export default {
 }
 
 .navbar a:hover {
-  color: #FF0303;
+  color: #e203ff;
 }
 
 #menu-icon {
@@ -91,12 +88,17 @@ export default {
 }
 
 @media (max-width: 954px) {
+  .header {
+    height: 4rem;
+  }
+
   .menubar {
-    padding: 1.25rem 4%;
+    height: 4rem;
+    padding: 0 4%;
   }
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   #menu-icon {
     display: block;
   }
@@ -121,5 +123,5 @@ export default {
     display: block;
     margin: 1.5rem 0;
   }
-}
+} */
 </style>
