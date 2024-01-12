@@ -4,8 +4,6 @@
       <div class="menubar">
         <a href="#" class="logo"><router-link class="router-link" :to="{ name: 'home' }">Logo</router-link></a>
 
-        <!-- <i class="fa-solid fa-bars" id="menu-icon"></i> -->
-
         <nav class="navbar">
           <a href="#"><router-link :to="{ name: 'login' }">Login</router-link></a>
           <a href="#"><router-link :to="{ name: 'register' }">Register</router-link></a>
@@ -18,13 +16,7 @@
 </template>
 <script>
 export default {
-  // const menuIcon = document.querySelector("#menu-icon");
-  // const navbar = document.querySelector(".navbar");
 
-  // menuIcon.addEventListener("click", () => {
-  //   menuIcon.classList.toggle("fa-solid fa-xmark");
-  //   navbar.classList.toggle("active");
-  // });
 }
 </script>
 <style >
@@ -103,31 +95,4 @@ export default {
     padding: 0 4%;
   }
 }
-
-/* @media (max-width: 700px) {
-  #menu-icon {
-    display: block;
-  }
-
-  .navbar {
-    position: fixed;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: .5rem 4%;
-    background: rgba(0, 0, 0, .7);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.8);
-    text-align: center;
-    display: none;
-  }
-
-  .navbar.active {
-    display: block;
-  }
-
-  .navbar a {
-    display: block;
-    margin: 1.5rem 0;
-  }
-} */
 </style>
