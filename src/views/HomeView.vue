@@ -1,6 +1,6 @@
 <template>
   <div>
-    Home Section {{ $store.state.count }}
+    Home Section {{ counter }}
   </div>
   <div class="w-25">
     <Button @click="increaseHandler">Increase</Button>
@@ -15,6 +15,11 @@ export default {
     },
     decreaseHandler() {
       this.$store.commit('decrement')
+    }
+  },
+  computed: {
+    counter() {
+      return this.$store.state.count
     }
   }
 }
