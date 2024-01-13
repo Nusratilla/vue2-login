@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-primary w-100 py-2 mt-5">
+  <button class="btn btn-primary w-100 mt-1">
     <slot></slot>
   </button>
 </template>
