@@ -6,14 +6,7 @@ const store = createStore({
       count: 0,
     };
   },
-  mutations: {
-    increment(state) {
-      state.count++;
-    },
-    decrement(state) {
-      state.count--;
-    },
-  },
+  mutations: {},
 });
 
 export default store;
