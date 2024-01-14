@@ -7,13 +7,25 @@
       <Input :label="'Email address'" :type="'email'"></Input>
       <Input :label="'Password'" :type="'password'"></Input>
 
-      <Button class="mt-5" type="submit">Register</Button>
+      <Button class="mt-5" type="submit" :disabled="isLoading" @click="submitHandler">Register</Button>
     </form>
   </main>
 </template>
 <script>
 export default {
+  computed: {
+    isLoading() {
+      return this.$store.state.auth.isLoading
+    },
+  },
+  methods: {
+    submitHandler(e) {
+      e.preventDefault()
+      this.$store.commit('setLoading')
 
+
+    }
+  }
 }
 </script>
 <style>
