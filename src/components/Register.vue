@@ -21,7 +21,12 @@ export default {
   methods: {
     submitHandler(e) {
       e.preventDefault()
-      this.$store.dispatch('register')
+      const data = {
+        username: 'nusratilla',
+        email: 'info@nusratilla.uz',
+        password: '1234567'
+      }
+      this.$store.dispatch('register', data) // 2-parameter payload 
 
 
     }
