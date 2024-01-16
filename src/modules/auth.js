@@ -5,13 +5,27 @@ const state = {
 };
 
 const mutations = {
-  setLoading(state) {
+  registerStart(state) {
     state.isLoading = true;
+  },
+  registerSuccess(state) {
+    state.isLoading = false;
+  },
+  registerFailure(state) {
+    state.isLoading = false;
   },
 };
 const actions = {
   register(context, user) {
-    AuthService.register(user);
+    return new Promise(() => {
+      AuthService.register(user)
+        .then((response) => {
+          console.log("Response", response);
+        })
+        .catch((error) => {
+          console.log("Error", error);
+        });
+    });
   },
 };
 export default {
