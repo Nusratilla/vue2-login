@@ -22,11 +22,14 @@ export default {
     submitHandler(e) {
       e.preventDefault()
       const data = {
-        username: 'nusratilla',
-        email: 'info@nusratilla.uz',
+        username: 'nusraticbkjnxclla',
+        email: 'info@nusratikjlla.uz',
         password: '1234567'
       }
-      this.$store.dispatch('register', data) // 2-parameter payload 
+      this.$store
+        .dispatch('register', data)
+        .then(user => console.log('user', user))
+        .catch(err => console.log("ERROR", err))
 
 
     }
