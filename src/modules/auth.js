@@ -1,4 +1,4 @@
-import AuthService from "@/service/sauth";
+import AuthServise from "@/service/sauth";
 
 const state = {
   isLoading: false,
@@ -25,7 +25,7 @@ const actions = {
   register(context, user) {
     return new Promise(() => {
       context.commit("registerStart");
-      AuthService.register(user)
+      AuthServise.register(user)
         .then((response) => {
           context.commit("registerSuccess", response.data.user);
           resolve(response.data.user);
