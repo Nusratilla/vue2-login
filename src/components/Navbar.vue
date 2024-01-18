@@ -2,11 +2,17 @@
   <div>
     <header class="header">
       <div class="menubar">
-        <a href="#" class="logo"><router-link class="router-link" :to="{ name: 'home' }">Logo</router-link></a>
+        <a href="#" class="logo" @click="toHomeHandler">
+          <RouterLink class="router-link">Logo</RouterLink>
+        </a>
 
         <nav class="navbar">
-          <a href="#"><router-link :to="{ name: 'login' }">Login</router-link></a>
-          <a href="#"><router-link :to="{ name: 'register' }">Register</router-link></a>
+          <a href="#">
+            <RouterLink :to="{ name: 'login' }">Login</RouterLink>
+          </a>
+          <a href="#">
+            <RouterLink :to="{ name: 'register' }">Register</RouterLink>
+          </a>
         </nav>
 
 
