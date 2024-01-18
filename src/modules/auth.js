@@ -10,7 +10,7 @@ const mutations = {
   registerStart(state) {
     state.isLoading = true;
     state.user = null;
-    state.error = null;
+    state.errors = null;
   },
   registerSuccess(state, payload) {
     state.isLoading = false;
@@ -23,7 +23,7 @@ const mutations = {
 };
 const actions = {
   register(context, user) {
-    return new Promise(() => {
+    return new Promise((resolve, reject) => {
       context.commit("registerStart");
       AuthServise.register(user)
         .then((response) => {
