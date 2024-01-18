@@ -3,9 +3,9 @@
     <form>
       <h1 class="h3 mt-5 mb-5 fw-normal">Register</h1>
 
-      <Input :label="'Name'" :type="'text'"></Input>
-      <Input :label="'Email address'" :type="'email'"></Input>
-      <Input :label="'Password'" :type="'password'"></Input>
+      <Input :label="'Name'" :type="'text'" v-model="username"></Input>
+      <Input :label="'Email address'" :type="'email'" v-model="email"></Input>
+      <Input :label="'Password'" :type="'password'" v-model="password"></Input>
 
       <Button class="mt-5" type="submit" :disabled="isLoading" @click="submitHandler">Register</Button>
     </form>
@@ -13,6 +13,13 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+    }
+  },
   computed: {
     isLoading() {
       return this.$store.state.auth.isLoading
@@ -22,13 +29,16 @@ export default {
     submitHandler(e) {
       e.preventDefault()
       const data = {
-        username: 'nuskahxmfsjclla',
-        email: 'info@nuashfmsjlla.uz',
-        password: '1234shsfmsjra67',
+        username: this.username,
+        email: this.email,
+        password: this.password,
       }
       this.$store
         .dispatch('register', data)
-        .then(user => console.log('user', user))
+        .then(user => {
+          console.log('user', user)
+          this.$router.push({ name: 'home' })
+        })
         .catch(err => console.log("ERROR", err))
 
 
