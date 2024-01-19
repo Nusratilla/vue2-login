@@ -3,7 +3,7 @@
     <header class="header">
       <div class="menubar">
         <a href="#" class="logo" @click="toHomeHandler">
-          <RouterLink class="router-link">Logo</RouterLink>
+          <RouterLink :to="{ name: 'home' }" class="router-link">Logo</RouterLink>
         </a>
 
         <nav class="navbar">
