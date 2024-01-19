@@ -28,6 +28,7 @@ const actions = {
       AuthServise.register(user)
         .then((response) => {
           context.commit("registerSuccess", response.data.user);
+          window.localStorage.setItem("token", response.data.user.token);
           resolve(response.data.user);
         })
         .catch((error) => {
