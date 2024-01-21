@@ -12,6 +12,8 @@
   </main>
 </template>
 <script>
+// import mapstate as 2 vuex method reg variant 1 method
+import { mapState } from 'vuex';
 import ValidationError from './ValidationError.vue';
 export default {
   components: {
@@ -24,12 +26,16 @@ export default {
     }
   },
   computed: {
-    isLoading() {
-      return this.$store.state.auth.isLoading
-    },
-    validationErrors() {
-      return this.$store.state.auth.errors
-    }
+    ...mapState({
+      isLoading: state => state.auth.isLoading,
+      validationErrors: state => state.auth.errors,
+    })
+    // isLoading() {
+    //   return this.$store.state.auth.isLoading
+    // },
+    // validationErrors() {
+    //   return this.$store.state.auth.errors
+    // }
   },
   methods: {
     submitHandler(e) {
