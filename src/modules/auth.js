@@ -20,6 +20,20 @@ const mutations = {
     state.isLoading = false;
     state.errors = payload.errors;
   },
+
+  loginStart(state) {
+    state.isLoading = true;
+    state.user = null;
+    state.errors = null;
+  },
+  loginSuccess(state, payload) {
+    state.isLoading = false;
+    state.user = payload;
+  },
+  loginFailure(state, payload) {
+    state.isLoading = false;
+    state.errors = payload.errors;
+  },
 };
 const actions = {
   register(context, user) {
@@ -33,6 +47,21 @@ const actions = {
         })
         .catch((error) => {
           context.commit("registerFailure", error.response.data);
+          reject(error.response.data);
+        });
+    });
+  },
+  login(context, user) {
+    return new Promise((resolve, reject) => {
+      context.commit("loginStart");
+      AuthServise.login(user)
+        .then((response) => {
+          context.commit("loginSuccess", response.data.user);
+          window.localStorage.setItem("token", response.data.user.token);
+          resolve(response.data.user);
+        })
+        .catch((error) => {
+          context.commit("loginFailure", error.response.data);
           reject(error.response.data);
         });
     });
