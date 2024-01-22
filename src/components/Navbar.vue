@@ -2,17 +2,27 @@
   <div>
     <header class="header">
       <div class="menubar">
-        <a href="#" class="logo" @click="toHomeHandler">
-          <RouterLink :to="{ name: 'home' }" class="router-link">Logo</RouterLink>
+        <a href="#" class="logo" @click="toHomeHandler"> Logo
+          <!-- <RouterLink :to="{ name: 'home' }" class="router-link">Logo</RouterLink> -->
         </a>
 
+        <!-- {{ user }} {{ isLoggedIn }} -->
+
         <nav class="navbar">
-          <a href="#">
-            <RouterLink :to="{ name: 'login' }">Login</RouterLink>
-          </a>
-          <a href="#">
-            <RouterLink :to="{ name: 'register' }">Register</RouterLink>
-          </a>
+          <template v-if="isLoggedIn">
+            <a href="#">
+              <RouterLink :to="{ name: 'home' }">Hi {{ user.username }}</RouterLink>
+            </a>
+          </template>
+          <template v-if="!isLoggedIn">
+            <a href="#">
+              <RouterLink :to="{ name: 'login' }">Login</RouterLink>
+            </a>
+            <a href="#">
+              <RouterLink :to="{ name: 'register' }">Register</RouterLink>
+            </a>
+          </template>
+
         </nav>
 
 
@@ -21,7 +31,14 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
+  computed: {
+    ...mapState({
+      user: state => state.auth.user,
+      isLoggedIn: state => state.auth.isLoggedIn,
+    })
+  },
   methods: {
     toHomeHandler() {
       return this.$router.push({ name: 'home' })
@@ -65,16 +82,18 @@ export default {
   left: 100%;
 }
 
-.router-link {
+/* .router-link {
   text-decoration: none;
   color: rgb(255, 255, 255);
-}
+} */
 
 .logo {
   font-size: 2rem;
   text-decoration: none;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
 .navbar a {

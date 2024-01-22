@@ -12,7 +12,7 @@
   </main>
 </template>
 <script>
-// import mapstate as 2 vuex method reg variant 1 method
+// import mapstate as 2 vuex method regular variant 1 method
 import { mapState } from 'vuex';
 import ValidationError from './ValidationError.vue';
 export default {
