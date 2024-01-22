@@ -11,7 +11,7 @@
         <nav class="navbar">
           <template v-if="isLoggedIn">
             <a href="#">
-              <RouterLink :to="{ name: 'home' }">Hi {{ user.username }}</RouterLink>
+              <RouterLink :to="{ name: 'home' }">Hi {{ currentUser.username }}</RouterLink>
             </a>
           </template>
           <template v-if="!isLoggedIn">
@@ -35,9 +35,12 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState({
-      user: state => state.auth.user,
+      // currentUser: state => state.auth.user,
       isLoggedIn: state => state.auth.isLoggedIn,
-    })
+    }),
+    currentUser() {
+      return this.$store.getters.currentUser
+    },
   },
   methods: {
     toHomeHandler() {

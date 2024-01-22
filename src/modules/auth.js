@@ -6,6 +6,11 @@ const state = {
   errors: null,
   isLoggedIn: null,
 };
+const getters = {
+  currentUser: (state) => {
+    return state.user;
+  },
+};
 
 const mutations = {
   registerStart(state) {
@@ -78,4 +83,5 @@ export default {
   state,
   mutations,
   actions,
+  getters,
 };
