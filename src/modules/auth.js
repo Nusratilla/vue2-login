@@ -1,4 +1,5 @@
 import AuthServise from "@/service/sauth";
+import { gettersTypes } from "./types";
 
 const state = {
   isLoading: false,
@@ -7,8 +8,14 @@ const state = {
   isLoggedIn: null,
 };
 const getters = {
-  currentUser: (state) => {
+  [gettersTypes.currentUser]: (state) => {
     return state.user;
+  },
+  [gettersTypes.isLoggedIn]: (state) => {
+    return Boolean(state.isLoggedIn);
+  },
+  [gettersTypes.isAnonymous]: (state) => {
+    return state.isLoggedIn === false;
   },
 };
 

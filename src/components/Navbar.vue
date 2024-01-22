@@ -6,15 +6,13 @@
           <!-- <RouterLink :to="{ name: 'home' }" class="router-link">Logo</RouterLink> -->
         </a>
 
-        <!-- {{ user }} {{ isLoggedIn }} -->
-
         <nav class="navbar">
           <template v-if="isLoggedIn">
             <a href="#">
               <RouterLink :to="{ name: 'home' }">Hi {{ currentUser.username }}</RouterLink>
             </a>
           </template>
-          <template v-if="!isLoggedIn">
+          <template v-if="isAnonymous">
             <a href="#">
               <RouterLink :to="{ name: 'login' }">Login</RouterLink>
             </a>
@@ -31,16 +29,32 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
+import { gettersTypes } from '@/modules/types'
+import { mapGetters } from 'vuex';
 export default {
   computed: {
-    ...mapState({
-      // currentUser: state => state.auth.user,
-      isLoggedIn: state => state.auth.isLoggedIn,
-    }),
-    currentUser() {
-      return this.$store.getters.currentUser
-    },
+    // ...mapState({
+    //   currentUser: state => state.auth.user,
+    //   isLoggedIn: state => state.auth.isLoggedIn,
+    // }),
+
+    // currentUser() {
+    //   return this.$store.getters[gettersTypes.currentUser]
+    // },
+    // isLoggedIn() {
+    //   return this.$store.getters[gettersTypes.isLoggedIn]
+    // },
+    // isAnonymous() {
+    //   return this.$store.getters[gettersTypes.isAnonymous]
+    // },
+
+    ...mapGetters({
+      currentUser: gettersTypes.currentUser,
+      isLoggedIn: gettersTypes.isLoggedIn,
+      isAnonymous: gettersTypes.isAnonymous,
+    })
+
   },
   methods: {
     toHomeHandler() {
