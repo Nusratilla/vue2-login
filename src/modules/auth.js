@@ -1,3 +1,4 @@
+import { setItem } from "@/helpers/persistaneStorage";
 import AuthServise from "@/service/sauth";
 import { gettersTypes } from "./types";
 
