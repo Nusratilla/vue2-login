@@ -8,17 +8,19 @@
 
         <nav class="navbar">
           <template v-if="isLoggedIn">
-            <a href="#">
-              <RouterLink :to="{ name: 'home' }">Hi {{ currentUser.username }}</RouterLink>
-            </a>
+
+            <RouterLink class="link-header" :to="{ name: 'home' }">Hi {{ currentUser.username }}</RouterLink>
+
+            <a href="#" class="link-header" @click="logout">Logout</a>
+
           </template>
+
           <template v-if="isAnonymous">
-            <a href="#">
-              <RouterLink :to="{ name: 'login' }">Login</RouterLink>
-            </a>
-            <a href="#">
-              <RouterLink :to="{ name: 'register' }">Register</RouterLink>
-            </a>
+
+            <RouterLink class="link-header" :to="{ name: 'login' }">Login</RouterLink>
+
+            <RouterLink class="link-header" :to="{ name: 'register' }">Register</RouterLink>
+
           </template>
 
         </nav>
@@ -59,6 +61,9 @@ export default {
   methods: {
     toHomeHandler() {
       return this.$router.push({ name: 'home' })
+    },
+    logout() {
+      return this.$store.dispatch('logout')
     }
   }
 }
@@ -113,12 +118,13 @@ export default {
   color: rgb(255, 255, 255);
 }
 
-.navbar a {
+.navbar .link-header {
   color: rgb(255, 255, 255);
   font-size: 20px;
   text-decoration: none;
   margin: 0 15px;
   transition: .3s;
+  cursor: pointer;
 }
 
 .navbar a:hover {

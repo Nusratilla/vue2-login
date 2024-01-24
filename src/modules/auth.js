@@ -1,4 +1,4 @@
-import { setItem } from "@/helpers/persistaneStorage";
+import { removeItem, setItem } from "@/helpers/persistaneStorage";
 import AuthServise from "@/service/sauth";
 import { gettersTypes } from "./types";
 
@@ -67,6 +67,10 @@ const mutations = {
     state.user = null;
     state.isLoggedIn = false;
   },
+  logout(state) {
+    state.user = null;
+    state.isLoggedIn = false;
+  },
 };
 const actions = {
   register(context, user) {
@@ -75,7 +79,7 @@ const actions = {
       AuthServise.register(user)
         .then((response) => {
           context.commit("registerSuccess", response.data.user);
-          window.localStorage.setItem("token", response.data.user.token);
+          setItem("token", response.data.user.token);
           resolve(response.data.user);
         })
         .catch((error) => {
@@ -90,7 +94,7 @@ const actions = {
       AuthServise.login(user)
         .then((response) => {
           context.commit("loginSuccess", response.data.user);
-          window.localStorage.setItem("token", response.data.user.token);
+          setItem("token", response.data.user.token);
           resolve(response.data.user);
         })
         .catch((error) => {
@@ -109,6 +113,10 @@ const actions = {
         })
         .catch(() => context.commit("currentUserFailure"));
     });
+  },
+  logout(context) {
+    context.commit("logout");
+    removeItem("token");
   },
 };
 export default {
