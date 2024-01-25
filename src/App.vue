@@ -2,9 +2,9 @@
   <div>
     <div class="container">
       <Navbar />
-      <h1>
-        <RouterView />
-      </h1>
+
+      <RouterView />
+
 
     </div>
 
@@ -15,8 +15,10 @@ import { Navbar } from './components';
 import { RouterView } from 'vue-router';
 export default {
   components: { Navbar },
+
   mounted() {
     this.$store.dispatch('getUser')
+
   }
 }
 </script>
