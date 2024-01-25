@@ -1,17 +1,21 @@
 <template>
   <div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
-      <ArticleCard v-for="article in data" :article="article" :key="article.id" />
 
+      <Loader v-if="isLoading" class="offset-md-6" />
+
+      <ArticleCard v-else v-for="article in data" :article="article" :key="article.id" />
     </div>
   </div>
 </template>
 <script>
 import { mapState } from 'vuex';
 import ArticleCard from '@/components/ArticleCard.vue'
+import Loader from '@/ui-components/Loader.vue';
 export default {
   components: {
     ArticleCard,
+    Loader
   },
   computed: {
     ...mapState({
