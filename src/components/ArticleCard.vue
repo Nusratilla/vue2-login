@@ -9,7 +9,7 @@
       </svg>
       <div class="card-body">
         <p class="card-text fw-bold">{{ article.title }}</p>
-        <p class="card-text">{{ article.description }}</p>
+        <p class="card-text">{{ article.body.slice(0, 100) }}...</p>
         <div class="d-flex justify-content-between align-items-center  card-footer">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">Read article</button>
