@@ -25,6 +25,7 @@ const mutations = {
   getArticleDetailStart(state) {
     state.isLoading = true;
     state.articleDetaile = null;
+    state.data = null;
     state.error = null;
   },
   getArticleDetailSuccess(state, payload) {
