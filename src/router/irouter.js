@@ -25,7 +25,7 @@ const router = createRouter({
       component: LoginView,
     },
     {
-      path: "/article/:slug",
+      path: "/article/:slug", // if we need ID or other parameters we can put it
       name: "article-details",
       component: ArticleDetailView,
     },
