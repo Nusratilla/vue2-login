@@ -24,13 +24,13 @@ const mutations = {
 
   getArticleDetailStart(state) {
     state.isLoading = true;
-    state.articleDetaile = null;
+    state.articleDetail = null;
     state.data = null;
     state.error = null;
   },
   getArticleDetailSuccess(state, payload) {
     state.isLoading = false;
-    state.articleDetaile = payload;
+    state.articleDetail = payload;
   },
   getArticleDetailFailure(state) {
     state.isLoading = false;
