@@ -4,6 +4,7 @@ import {
   RegisterView,
   HomeView,
   ArticleDetailView,
+  CreateArticleView,
 } from "@/views/iviews";
 
 const router = createRouter({
@@ -28,6 +29,11 @@ const router = createRouter({
       path: "/article/:slug", // if we need ID or other parameters we can put it
       name: "article-details",
       component: ArticleDetailView,
+    },
+    {
+      path: "/create-article",
+      name: "create-article",
+      component: CreateArticleView,
     },
   ],
 });

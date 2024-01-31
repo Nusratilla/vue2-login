@@ -9,6 +9,8 @@
         <nav class="navbar">
           <template v-if="isLoggedIn">
 
+            <RouterLink class="link-header" :to="{ name: 'create-article' }">Create article </RouterLink>
+
             <RouterLink class="link-header" :to="{ name: 'home' }">Hi {{ currentUser.username }}</RouterLink>
 
             <a href="#" class="link-header" @click="logout">Logout</a>

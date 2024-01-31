@@ -1,6 +1,6 @@
 <template >
   <div>
-    <Loader v-if="isLaoding" class="offset-md-6" />
+    <Loader v-if="isLaoding" class="offset-md-6 mt-5" />
     <ArticleDetail v-else />
   </div>
 </template>
