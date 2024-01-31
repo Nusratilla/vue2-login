@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-primary color-white w-100 mt-1">
+  <button class="btn btn-primary color-white w-100 mt-3">
     <slot></slot>
   </button>
 </template>
