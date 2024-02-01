@@ -26,7 +26,7 @@ export default {
         body: this.body,
         tagList: [],
       }
-      console.log(article);
+      this.$store.dispatch('createArticle', article)
     },
   },
 }
