@@ -27,10 +27,13 @@ const actions = {
   },
 
   deleteArticle(context, slug) {
-    return new Promise(() => {
+    return new Promise((resolve) => {
       context.commit("controlArticleStart");
       ArticleService.deleteArticle(slug)
-        .then(() => context.commit("controlArticleSuccess"))
+        .then(() => {
+          context.commit("controlArticleSuccess");
+          resolve();
+        })
         .catch(() => context.commit("controlArticleFailure"));
     });
   },

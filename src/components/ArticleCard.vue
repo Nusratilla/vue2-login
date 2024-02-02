@@ -42,7 +42,7 @@ export default {
       return this.$router.push(`/article/${this.article.slug}`)
     },
     deleteArticleHandler() {
-      this.$store.dispatch("deleteArticle", this.article.slug)
+      return this.$store.dispatch("deleteArticle", this.article.slug).then(() => this.$store.dispatch('articles'))
     },
   },
 }
