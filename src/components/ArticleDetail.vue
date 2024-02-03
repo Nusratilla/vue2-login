@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-import Loader from '@/ui-components/Loader.vue';
+// import Loader from '@/ui-components/Loader.vue';
 import { mapState } from 'vuex';
 export default {
   computed: {
@@ -43,7 +43,7 @@ export default {
       article: state => state.articles.articleDetail,
     })
   },
-  components: { Loader }
+  // components: { Loader }
 }
 </script>
 <style></style>

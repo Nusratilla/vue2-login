@@ -1,7 +1,7 @@
 <template>
   <div class="form-floating mt-3">
     <textarea :type="type" class="form-control" :id="label" :placeholder="label" @input="updateInput"
-      :value="modelValue"> </textarea>
+      :value="modelValue"></textarea>
     <label :for="label">{{ label }}</label>
   </div>
 </template>

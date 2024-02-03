@@ -16,14 +16,14 @@
 import { mapState } from 'vuex';
 import ValidationError from './ValidationError.vue';
 export default {
-  components: {
-    ValidationError,
-  },
   data() {
     return {
       email: '',
       password: '',
     }
+  },
+  components: {
+    ValidationError,
   },
   computed: {
     ...mapState({
@@ -54,7 +54,7 @@ export default {
         .catch(err => console.log("ERROR", err))
 
 
-    }
+    },
   },
 }
 </script>

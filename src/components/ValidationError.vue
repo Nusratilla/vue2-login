@@ -8,7 +8,6 @@
 </template>
 <script>
 export default {
-  name: 'ValidationError',
   props: {
     validationErrors: {
       type: Object,
@@ -23,9 +22,6 @@ export default {
       })
     }
   },
-  updated() {
-    console.log(this.validationErrors);
-  }
 }
 </script>
 <style></style>

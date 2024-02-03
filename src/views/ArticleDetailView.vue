@@ -11,13 +11,13 @@ export default {
   components: {
     ArticleDetail,
   },
-  mounted() {
-    this.$store.dispatch('articleDetail', this.$route.params.slug)
-  },
   computed: {
     ...mapState({
       isLaoding: state => state.articles.isLoading,
     })
+  },
+  mounted() {
+    this.$store.dispatch('articleDetail', this.$route.params.slug)
   },
 }
 </script>

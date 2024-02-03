@@ -16,15 +16,15 @@
 <script>
 import ValidationError from './ValidationError.vue'
 export default {
-  components: {
-    ValidationError,
-  },
   data() {
     return {
       username: '',
       email: '',
       password: '',
     }
+  },
+  components: {
+    ValidationError,
   },
   computed: {
     isLoading() {
