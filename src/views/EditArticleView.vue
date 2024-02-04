@@ -1,35 +1,37 @@
 <template>
-  <h2 class="text-center m-5">Edit Article</h2>
-  <div class="w-50 mx-auto">
-    <form @submit.prevent>
-      <Input type="text" label="Title" v-model="title" />
-      <TextArea type="text" label="Description" v-model="description" />
-      <TextArea type="text" label="Body" v-model="body" />
-      <Button @click="editArticleHandler" :disabled="isLoading">Edit article</Button>
-    </form>
-  </div>
+  <p class="text-center display-2">Edit article</p>
+  <Loader v-if="isLoading" class="offset-md-6" />
+  <ArticleForm v-else-if="!isLoading && article" :initialValue="initialValue" :onSubmitHandler="editArticleHandler"
+    :clickText="'Edit article'" />
 </template>
+
 <script>
-import { mapState } from 'vuex';
+import { mapState } from 'vuex'
+import ArticleForm from '../components/ArticleForm.vue'
 export default {
-  data() {
-    return {
-      title: '',
-      description: '',
-      body: '',
-    }
-  },
+  components: { ArticleForm },
   methods: {
-    editArticleHandler() { }
+    editArticleHandler(article) {
+      this.$store
+        .dispatch('updateHandler', { article: article, slug: this.$route.params.slug })
+        .then(() => this.$router.push('/'))
+    },
   },
   computed: {
     ...mapState({
       article: state => state.articles.articleDetail,
-    })
+      isLoading: state => state.articles.isLoading,
+    }),
+    initialValue() {
+      return {
+        title: this.article.title,
+        description: this.article.description,
+        body: this.article.body,
+      }
+    },
   },
   mounted() {
     this.$store.dispatch('articleDetail', this.$route.params.slug)
   },
 }
 </script>
-<style></style>
