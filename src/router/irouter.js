@@ -5,6 +5,7 @@ import {
   HomeView,
   ArticleDetailView,
   CreateArticleView,
+  EditArticleView,
 } from "@/views/iviews";
 
 const router = createRouter({
@@ -34,6 +35,11 @@ const router = createRouter({
       path: "/create-article",
       name: "create-article",
       component: CreateArticleView,
+    },
+    {
+      path: "/edit-article/:slug",
+      name: "edit-article",
+      component: EditArticleView,
     },
   ],
 });
